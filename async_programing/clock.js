@@ -15,8 +15,6 @@ function clock() {
 
   let time = `${Hour}:${min}:${sec}:${format}`;
   console.log(` Current Time ${time}`);
-  //   process.stdout.write(`\r time: ${time}`);
-  //   console.log(time);
 }
 
 clock();
