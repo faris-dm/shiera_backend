@@ -4,8 +4,8 @@ const Loading = setInterval(() => {
   i -= 1;
 }, 1000);
 
-console.log("  five passed");
 setTimeout(() => {
-  console.log("  five  minuts passed ");
+  console.log("Done after 5 seconds");
+
   clearInterval(Loading);
-});
+}, 5000);
