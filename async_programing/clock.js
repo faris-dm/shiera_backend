@@ -14,7 +14,7 @@ function clock() {
   sec = sec.toString().padStart(2, 0);
 
   let time = `${Hour}:${min}:${sec}:${format}`;
-  console.log(` the format: ${time}`);
+  console.log(` Current Time ${time}`);
   //   process.stdout.write(`\r time: ${time}`);
   //   console.log(time);
 }
