@@ -1,26 +1,31 @@
 import express from "express";
-
 const app = express();
-
 const product = [
   { id: 1, name: "Laptop", price: 1000 },
   { id: 2, name: "Phone", price: 500 },
   { id: 3, name: "Airpod", price: 2000 },
-  { id: 4, name: "Watch", price: 500 },
-  { id: 5, name: "keyboard", price: 1000 },
+  { id: 4, name: "Watch", price: 400 },
+  { id: 5, name: "keyboard", price: 7000 },
   { id: 6, name: "jeet", price: 500 },
 ];
+app.get("/products", (req, res) => {
+  res.json(product);
+});
 
-app.get("/products", (req, res, eror) => {
-  if (eror) {
-    res.status(404).send("Unknow Page");
+app.get("/products/:id", (req, res) => {
+  const one = product.find((item) => item.id === parseInt(req.params.id));
+  if (one) {
+    res.send(one);
   } else {
-    res.send(product);
+    res.send("Item does not found");
   }
 });
 
-const port = 9000;
+app.get("/", (req, res) => {
+  res.send({ message: " i am solo" });
+});
 
-app.listen(port, (req, res) => {
-  console.log(`http://localhost:9000`);
+const port = 1000;
+app.listen(port, () => {
+  console.log(`http://localhost:1000`);
 });
