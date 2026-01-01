@@ -8,6 +8,8 @@ const product = [
   { id: 5, name: "keyboard", price: 7000 },
   { id: 6, name: "jeet", price: 500 },
 ];
+
+app.use(express.json());
 app.get("/products", (req, res) => {
   res.json(product);
 });
@@ -23,6 +25,19 @@ app.get("/products/:id", (req, res) => {
 
 app.get("/", (req, res) => {
   res.send({ message: " i am solo" });
+});
+
+app.post("/products", (req, res) => {
+  let makeArray = Array.isArray(req.body) ? req.body : [req.body];
+  let newItem = makeArray.map((item, index) => ({
+    id: product.length + index + 1,
+    name: item.name,
+    price: item.price,
+  }));
+
+  product.push(...newItem);
+
+  res.status(201).send(product);
 });
 
 const port = 1000;
