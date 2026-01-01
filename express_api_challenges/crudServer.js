@@ -1,4 +1,5 @@
 import express from "express";
+
 const app = express();
 const product = [
   { id: 1, name: "Laptop", price: 1000 },
@@ -38,6 +39,21 @@ app.post("/products", (req, res) => {
   product.push(...newItem);
 
   res.status(201).send(product);
+});
+
+app.delete("/products/:id", (req, res) => {
+  let removeItem = product.find(
+    (items) => items.id === parseInt(req.params.id)
+  );
+  if (!removeItem) {
+    res
+      .status(404)
+      .send(`Item  with  this id does not  found or incorrect input`);
+  } else {
+    const findIndex = product.indexOf(removeItem);
+    product.splice(findIndex, 1);
+  }
+  res.send(product);
 });
 
 const port = 1000;
