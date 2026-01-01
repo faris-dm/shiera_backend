@@ -6,12 +6,19 @@ const product = [
   { id: 3, name: "Watch", price: 900 },
   { id: 4, name: "Car", price: 500.0 },
 ];
-app.get("/", (req, res) => {
-  res.send({ message: " welcome to the design page" });
-});
 
 app.get("/product", (req, res) => {
   res.send(product);
+});
+
+app.get("/product/:id", (req, res) => {
+  const onlyProduct = product.find(
+    (items) => items.id === parseInt(req.params.id)
+  );
+  if (!onlyProduct) {
+    res.status(404).send("Item does not found");
+  }
+  res.send(onlyProduct);
 });
 
 const port = 7000;
