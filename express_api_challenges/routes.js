@@ -7,11 +7,11 @@ const product = [
   { id: 4, name: "Car", price: 500.0 },
 ];
 
-app.get("/product", (req, res) => {
+app.get("/products", (req, res) => {
   res.send(product);
 });
 
-app.get("/product/:id", (req, res) => {
+app.get("/products/:id", (req, res) => {
   const onlyProduct = product.find(
     (items) => items.id === parseInt(req.params.id)
   );

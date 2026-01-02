@@ -1,5 +1,5 @@
-const express = require("express");
-const { AppWindow } = require("lucide-react");
+import express from "express";
+
 const app = express();
 
 app.get("/", (req, res) => {
