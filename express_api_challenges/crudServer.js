@@ -41,6 +41,21 @@ app.post("/products", (req, res) => {
   res.status(201).send(product);
 });
 
+app.put("/products/:id", (req, res) => {
+  let updateElement = product.find(
+    (item) => item.id === parseInt(req.params.id)
+  );
+
+  if (updateElement) {
+    updateElement.name = req.body.name || updateElement.name;
+    updateElement.price = req.body.price || updateElement.price;
+
+    res.status(200).send({ message: "updated item", updateElement });
+  } else {
+    res.status(404).send({ alert: "Item not found" });
+  }
+});
+
 app.delete("/products/:id", (req, res) => {
   let removeItem = product.find(
     (items) => items.id === parseInt(req.params.id)
