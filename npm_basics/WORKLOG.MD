@@ -14,7 +14,8 @@ nts and the type of scoped packages
 
 creating thr react-app was challangeing due topath conflict
 
-## fix created a clean path with out any conflict
+## fix 
+ created a clean path with out any conflict
 
 ## resources
 
