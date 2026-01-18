@@ -7,5 +7,15 @@
   },
   "author": "solo",
   "license": "MIT",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.18",
+    "pug": "^3.0.3",
+    "tailwindcss": "^4.1.18"
+  },
+  "devDependencies": {
+    "express": "^5.2.1",
+    "nodemon": "^3.1.11",
+    "npm": "^11.7.0"
+  }
 }
