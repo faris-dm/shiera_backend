@@ -1,12 +1,15 @@
 doctype html 
 html 
 head 
+head
+  //- The '/' at the beginning is very important!
+  link(rel="stylesheet", href="/style.css")
 title  my pug page 
 body 
-h1  welcome to bug 
+h1   welcome to bug 
 p this is  pug template
 
-h1 solo Naser 
+p.text-3xl.bg-blue-500.text-white.p-4 Solo Naser
 
 h3 this data coming from server 
 p data #{message}
