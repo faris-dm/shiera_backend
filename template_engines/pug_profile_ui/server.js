@@ -10,8 +10,12 @@ app.get("/", (req, res) => {
 
 app.get("/home", (req, res) => {
   let data = {
-    message: "hello solo from your Fam",
-    reality: " you are alone and have you enjoy your life",
+    name: "Fatima Noor",
+    age: "23",
+    profession: "Software Developer",
+    skill: [" Node.js  |", " Express |", " MongoDB |", "\t EJS"],
+
+    qoutes: "</ coder >",
   };
   res.render("index", data);
 });
