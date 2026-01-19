@@ -1,6 +1,7 @@
 import express from "express";
 let app = express();
 app.set("view engine", "pug");
+app.set("views", "./views");
 app.use(express.static("public"));
 
 app.get("/", (req, res) => {
