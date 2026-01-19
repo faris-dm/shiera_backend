@@ -1,15 +1,35 @@
-doctype html 
-html 
-head 
-head
-  //- The '/' at the beginning is very important!
-  link(rel="stylesheet", href="/style.css")
-title  my pug page 
-body 
-h1   welcome to bug 
-p this is  pug template
+doctype html
+html(lang="en")
+  head
+    title Profile | #{name}
+    link(rel="stylesheet", href="/style.css")
+  body(class="bg-gray-100 flex justify-center p-0 md:p-10 lg:items-center min-h-[70%]")
+    
+    //- Main Container
+    div(class="w-full max-w-md bg-white shadow-md md:rounded-2xl lg:max-w-lg")
+      
+      //- Banner
+      div(class="h-30 bg-blue-500 md:h-32 rounded-lg my-5 mx-2")
+      
+      //- Profile Section
+      div(class="px-4 flex justify-between items-end -mt-10 md:-mt-12")
+        div(class="w-20 h-20 md:w-24 md:h-24 rounded-full border-4 border-white bg-gray-200 flex items-center justify-center")
+        img(src="/images/pro.jpg", alt="profile picture")
+           span(class="text-3xl md:text-4xl") 👤
+        button(class="border border-gray-300 rounded-full px-4 py-1.5 font-bold text-sm hover:bg-gray-50") Follow
 
-p.text-3xl.bg-blue-500.text-white.p-4 Solo Naser
+      //- Info Section
+      div(class="p-4 md:p-6")
+        div(class="mb-4")
+          h1(class="text-xl md:text-2xl font-extrabold text-black") #{name}
+          p(class="text-gray-500 font-sans-serif py-2") @#{name}
+        
+        p(class="text-gray-800 text-sm md:text-base") #{profession}
+       
 
-h3 this data coming from server 
-p data #{message}
+        //- Simple Grid for Skills
+        div(class="mt-4 border-t pt-4")
+          p(class="font-bold text-xs uppercase text-gray-400 mb-2") Skills
+          div(class="flex flex-wrap gap-2")
+            each s in skill
+              span(class="text-blue-500 text-sm font-medium") ##{s.replace('|', '').trim()}
